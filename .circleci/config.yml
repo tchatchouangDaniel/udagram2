@@ -18,17 +18,13 @@ jobs:
       - aws-cli/setup
       # install aws cli
       # install dependencies in both api and frontend
-      # then test both api and front end
+      # then test api
       # then build both api and front end
       # deploy UI to s3
       - run:
           name: install UI dependencies
           command: |
             npm run frontend:install
-      - run:
-          name: test UI
-          command: |
-            npm run frontend:test
       - run:
           name: build UI
           command: |
