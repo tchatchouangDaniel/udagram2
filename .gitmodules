@@ -1,0 +1,3 @@
+[submodule "udagram-api"]
+	path = udagram-api
+	url = https://github.com/tchatchouangDaniel/udagram-api.git
