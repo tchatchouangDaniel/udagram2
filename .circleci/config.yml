@@ -25,6 +25,10 @@ jobs:
           command: |
             npm run frontend:install
       - run:
+          name: test UI
+          command: |
+            npm run frontend:test
+      - run:
           name: build UI
           command: |
             npm run frontend:build
@@ -32,6 +36,10 @@ jobs:
           name: install backend dependencies
           command: |
             npm run backend:install
+      - run:
+          name: test Backend
+          command: |
+            npm run backend:test
       - run:
           name: build backend
           command: |
