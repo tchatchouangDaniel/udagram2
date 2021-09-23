@@ -41,10 +41,10 @@ jobs:
           command: |
             npm run backend:build
       - run:
+          name: deploy Back-End
+          command: |
+            npm run backend:deploy
+      - run:
           name: deploy UI to S3
           command: |
             npm run frontend:deploy
-      - run:
-          name: Deploy Back-End
-          command: |
-            npm run backend:deploy
