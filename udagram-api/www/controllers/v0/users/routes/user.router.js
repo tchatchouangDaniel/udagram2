@@ -13,10 +13,10 @@ exports.UserRouter = void 0;
 const express_1 = require("express");
 const User_1 = require("../models/User");
 const auth_router_1 = require("./auth.router");
-const router = express_1.Router();
-router.use('/auth', auth_router_1.AuthRouter);
-router.get('/');
-router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const router = (0, express_1.Router)();
+router.use("/auth", auth_router_1.AuthRouter);
+router.get("/");
+router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const item = yield User_1.User.findByPk(id);
     res.send(item);

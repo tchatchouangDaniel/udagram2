@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -44,10 +44,10 @@ const model_index_1 = require("./controllers/v0/model.index");
     yield sequelize_1.sequelize.addModels(model_index_1.V0_USER_MODELS);
     yield sequelize_1.sequelize.sync();
     console.log("Database Connected");
-    const app = express_1.default();
-    const port = process.env.PORT || 8080;
+    const app = (0, express_1.default)();
+    const port = 8080;
     app.use(body_parser_1.default.json());
-    app.use(cors_1.default());
+    app.use((0, cors_1.default)());
     app.use("/api/v0/", index_router_1.IndexRouter);
     // Root URI call
     app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -55,7 +55,7 @@ const model_index_1 = require("./controllers/v0/model.index");
     }));
     // Start the Server
     app.listen(port, () => {
-        console.log(`server running ${process.env.URL}`);
+        console.log(`server running on ${port}`);
         console.log(`press CTRL+C to stop server`);
     });
 }))();

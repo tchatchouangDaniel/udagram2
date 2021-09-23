@@ -4,12 +4,14 @@ exports.getPutSignedUrl = exports.getGetSignedUrl = exports.s3 = void 0;
 const AWS = require("aws-sdk");
 const config_1 = require("./config/config");
 // Configure AWS
-const credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
-AWS.config.credentials = credentials;
 exports.s3 = new AWS.S3({
-    signatureVersion: "v4",
+    //signatureVersion: "v4",
     region: config_1.config.aws_region,
     params: { Bucket: config_1.config.aws_media_bucket },
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.SECRET_ACCESS_KEY_ID,
+    },
 });
 // Generates an AWS signed URL for retrieving objects
 function getGetSignedUrl(key) {
@@ -28,6 +30,7 @@ function getPutSignedUrl(key) {
         Bucket: config_1.config.aws_media_bucket,
         Key: key,
         Expires: signedUrlExpireSeconds,
+        ContentType: "application/octet-stream",
     });
 }
 exports.getPutSignedUrl = getPutSignedUrl;
