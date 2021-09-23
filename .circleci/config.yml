@@ -24,14 +24,14 @@ jobs:
       # then test api
       # then build both api and front end
       # deploy UI to s3
-      - run:
-          name: install UI dependencies
-          command: |
-            npm run frontend:install
-      - run:
-          name: build UI
-          command: |
-            npm run frontend:build
+      # - run:
+      #     name: install UI dependencies
+      #     command: |
+      #       npm run frontend:install
+      # - run:
+      #     name: build UI
+      #     command: |
+      #       npm run frontend:build
       - run:
           name: install backend dependencies
           command: |
@@ -44,7 +44,7 @@ jobs:
           name: deploy Back-End
           command: |
             npm run backend:deploy
-      - run:
-          name: deploy UI to S3
-          command: |
-            npm run frontend:deploy
+      # - run:
+      #     name: deploy UI to S3
+      #     command: |
+      #       npm run frontend:deploy
